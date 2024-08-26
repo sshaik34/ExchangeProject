@@ -300,6 +300,24 @@ public class App {
 		}else {
 			System.out.println("PASS - Virgin Galactic stock price is greater than invested amount");
 		}
+		// FXAIX Stock Price
+		double expValue_Fxaix = 10.2;
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id='APjFqb']")).clear();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id='APjFqb']")).sendKeys("FXAIX stock price");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id='APjFqb']")).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		String fxaix = driver.findElement(By.xpath("//*[@id='knowledge-finance-wholepage__entity-summary']/div[3]/g-card-section/div/g-card-section/div[2]/div[1]/span[1]/span/span[1]")).getText();
+		double dfxaix = Double.parseDouble(fxaix);
+		System.out.println("Current Virgin Galactic price - "+ dfxaix);
+		Thread.sleep(1000);
+		if (dfxaix <= expValue_Fxaix) {
+			System.out.println("FAIL - FXAIX stock price is less than invested amount");
+		}else {
+			System.out.println("PASS - FXAIX stock price is greater than invested amount");
+		}
 		// ETC Stock Price
 		double expValue_etc = 40.2;
 		Thread.sleep(1000);
@@ -338,7 +356,7 @@ public class App {
 		}
 		
 		
-		
+		//testing
 		driver.quit();
 	}
 
